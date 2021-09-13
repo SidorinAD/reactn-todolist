@@ -5,17 +5,22 @@ export class TodoStore {
   todos: TodoType[] = [
     {
       id: 1,
-      text: 'test',
+      text: 'To do todo',
       completed: false,
     },
     {
       id: 2,
-      text: 'test',
+      text: 'And learn React Native',
       completed: false,
     },
     {
       id: 3,
-      text: 'test',
+      text: 'And have fun =)',
+      completed: false,
+    },
+    {
+      id: 4,
+      text: 'Check todos with very long long long text, its important, like, really really important',
       completed: false,
     },
   ];
