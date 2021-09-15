@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
+
 import { 
   StyleSheet,
   View,
   TextInput,
   Button } from 'react-native';
+  
 import { useTodoStore } from '../../utils/hooks';
 
 export const AddTodo = observer(() => {

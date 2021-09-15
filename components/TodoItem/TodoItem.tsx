@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { StyleSheet, View} from 'react-native';
-import { CheckBox, Modal, Card, Text, Button } from '@ui-kitten/components';
+
+import {
+  CheckBox,
+  Modal,
+  Card,
+  Text,
+  Button
+} from '@ui-kitten/components';
+
 import { useTodoStore } from '../../utils/hooks';
 
 export const TodoItem = observer(({ todoData } : any) => {

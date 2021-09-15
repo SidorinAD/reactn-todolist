@@ -1,5 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+
+import {
+  StyleSheet,
+  View,
+  FlatList
+} from 'react-native';
+
 import { observer } from 'mobx-react-lite';
 import { useTodoStore } from '../../utils/hooks';
 import { TodoItem } from '../TodoItem';
