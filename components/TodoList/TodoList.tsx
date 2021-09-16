@@ -2,8 +2,8 @@ import React from 'react';
 
 import {
   StyleSheet,
-  View,
-  FlatList
+  FlatList,
+  ScrollView
 } from 'react-native';
 
 import { observer } from 'mobx-react-lite';
@@ -12,15 +12,16 @@ import { TodoItem } from '../TodoItem';
 
 export const TodoList = observer(() => {
   const { TodoStore } = useTodoStore();
+  const todos = TodoStore.todos;
   return (
-    <View style={styles.todolistcontainer}>
+    <ScrollView>
       <FlatList
         showsVerticalScrollIndicator={true}
-        data={TodoStore.todos}
+        data={todos}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <TodoItem todoData={item} />}
       />
-    </View>
+    </ScrollView>
   );
 });
 

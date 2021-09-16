@@ -4,8 +4,9 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView,
 } from 'react-native';
+
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider } from '@ui-kitten/components';
@@ -29,7 +30,9 @@ export default function App() {
           </View>
           <StatusBar style="auto" />
           <AddTodo />
-          <TodoList />
+          <SafeAreaView>
+            <TodoList />
+          </SafeAreaView>
         </View>
       </TodoContext.Provider>
     </ApplicationProvider>
