@@ -5,9 +5,10 @@ import {
   StyleSheet,
   View,
   TextInput,
-  Button } from 'react-native';
+  Button 
+} from 'react-native';
   
-import { useTodoStore } from '../../utils/hooks';
+import { useTodoStore } from 'utils/hooks';
 
 export const AddTodo = observer(() => {
     const { TodoStore } = useTodoStore();

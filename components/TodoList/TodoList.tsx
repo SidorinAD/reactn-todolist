@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import { observer } from 'mobx-react-lite';
-import { useTodoStore } from '../../utils/hooks';
+import { useTodoStore, useAsync } from 'utils/hooks';
 import { TodoItem } from '../TodoItem';
 
 export const TodoList = observer(() => {
