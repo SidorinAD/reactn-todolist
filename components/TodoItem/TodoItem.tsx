@@ -10,7 +10,7 @@ import {
   Button
 } from '@ui-kitten/components';
 
-import { useTodoStore } from '../../utils/hooks';
+import { useTodoStore } from 'utils/hooks';
 
 export const TodoItem = observer(({ todoData } : any) => {
   const { id, text, completed, date } = todoData;

@@ -27,6 +27,7 @@ export class TodoStore {
       completed: false,
       date: new Date().toLocaleString(),
     },
+    /*
     {
       id: 5,
       text: 'And have fun =)',
@@ -51,6 +52,7 @@ export class TodoStore {
       completed: false,
       date: new Date().toLocaleString(),
     },
+    */
   ];
 
   constructor() {
@@ -78,4 +80,5 @@ export class TodoStore {
   removeTodo(id: number) {
     this.todos = this.todos.filter((todo) => todo.id !== id);
   }
+
 }
