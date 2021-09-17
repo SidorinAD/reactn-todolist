@@ -1,3 +1,3 @@
 export { useTodoStore } from './useTodoStore';
 
-export { useAsync } from './useAsync';
+export { useAsyncEffect } from './useAsyncEffect';
