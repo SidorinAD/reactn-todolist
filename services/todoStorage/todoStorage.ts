@@ -8,7 +8,7 @@ export const cashTodos = async (todos: TodoType[]) => {
     const jsonTodos = JSON.stringify(todos);
     await AsyncStorage.setItem(todoStorageKey, jsonTodos);
   } catch (e) {
-    console.log(e);
+    console.error;
   }
 };
 

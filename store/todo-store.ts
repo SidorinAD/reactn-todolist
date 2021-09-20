@@ -3,6 +3,7 @@ import { TodoType } from "../types";
 
 export class TodoStore {
   todos: TodoType[] = [
+    /*
     {
       id: 1,
       text: 'To do todo',
@@ -27,7 +28,7 @@ export class TodoStore {
       completed: false,
       date: new Date().toLocaleString(),
     },
-    /*
+    
     {
       id: 5,
       text: 'And have fun =)',
@@ -68,6 +69,11 @@ export class TodoStore {
     };
 
     this.todos.push(newTodo);
+  }
+
+  addCashedTodos(jsonValue: any) {
+    console.log(jsonValue);
+    this.todos = [ ...this.todos, ...jsonValue];
   }
 
   completeTodo(id: number) {
