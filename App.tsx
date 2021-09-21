@@ -15,6 +15,7 @@ import { StatusBar } from 'expo-status-bar';
 import { TodoStore } from './store';
 import { TodoList } from './components/TodoList';
 import { AddTodo } from './components/AddTodoForm';
+import { Header } from './components/Header'
 
 let defaultTodo = new TodoStore();
 
@@ -25,9 +26,7 @@ export default function App() {
     <ApplicationProvider {...eva} theme={eva.light}>
       <TodoContext.Provider value={new TodoStore()}>
         <View style={styles.container}>
-          <View style={styles.header}>
-            <Text style={styles.headerText}>Todo list</Text>
-          </View>
+          <Header title={'Todo List'}/>
           <StatusBar style="auto" />
           <AddTodo />
           <SafeAreaView>
@@ -43,16 +42,5 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     alignItems: 'center',
-  },
-  header: {
-    width: '100%',
-    height: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'green',
-  },
-  headerText: {
-    fontSize: 20,
-    color: 'white',
   },
 });
