@@ -8,7 +8,7 @@ import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 export const Header: FC<HeaderType> = ({ title }) => {
 
-  const [expand, setExpand] = useState(true);
+  const [menuDrop, setMenuDrop] = useState(true);
   const [searchInputVisible, setSearchInputVisible] = useState(true);
   const [searchInputActive, setSearchInputActive] = useState(false);
 
@@ -49,8 +49,8 @@ export const Header: FC<HeaderType> = ({ title }) => {
   }
   
   const handleDropDown = () => {
-    setExpand((prevExpand) => !prevExpand)
-    return expand ? dropDown() : dropUp()
+    setMenuDrop((menuDrop) => !menuDrop);
+    return menuDrop ? dropDown() : dropUp()
   }
 
   const dropDownAnim = useRef(new Animated.Value(0)).current;
