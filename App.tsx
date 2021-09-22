@@ -29,7 +29,7 @@ export default function App() {
         <View style={styles.container}>
           <Header title={'Todo List'}/>
           <StatusBar style="auto" />
-          <TodoFolder></TodoFolder>
+          <TodoFolder title={'Copy'} ></TodoFolder>
           <SafeAreaView>
             <TodoList />
           </SafeAreaView>

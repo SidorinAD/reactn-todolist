@@ -25,8 +25,6 @@ export const TodoItem = observer(({ todoData } : any) => {
   return (
     <View style={styles.todoContainer}>
       <View style={styles.textContainer}>
-        <Text style={styles.idStyles}>{id}</Text>
-
         <CheckBox
           style={styles.checkboxStyles}
           checked={completed}
@@ -67,7 +65,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginVertical: 15,
     alignItems: 'center',
-    borderWidth: 1,
   },
   idStyles: {
     paddingRight: 10,
