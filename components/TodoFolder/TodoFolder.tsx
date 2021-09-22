@@ -1,6 +1,12 @@
 import React, { FC, useState } from 'react';
 
-import { StyleSheet, View, Text, Animated } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Animated
+} from 'react-native';
+
 import { Divider } from '@ui-kitten/components';
 
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
@@ -55,8 +61,8 @@ export const TodoFolder: FC<TodoFolderProps> = ({ title, todosCount }) => {
           />
         </View>
       </View>
-
       <Divider />
+      
     </View>
   );
 };
