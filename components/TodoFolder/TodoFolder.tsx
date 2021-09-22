@@ -1,9 +1,11 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { StyleSheet, View, Text, Animated } from 'react-native';
 import { Divider } from '@ui-kitten/components';
 
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+
+import { useAnimatedStyle } from 'utils/hooks';
 
 
 type TodoFolderProps = {
@@ -13,31 +15,10 @@ type TodoFolderProps = {
 
 export const TodoFolder: FC<TodoFolderProps> = ({ title, todosCount }) => {
   const [expand, setExpand] = useState(true);
-  const [menuDrop, setMenuDrop] = useState(true);
+
+  const { onPressAnimate, transitionY } = useAnimatedStyle();
 
   const handleExpand = () => (setExpand((prevExpand) => !prevExpand));
-
-  const handleDropDown = () => {
-    setMenuDrop((menuDrop) => !menuDrop);
-    return menuDrop ? menuDropDown() : menuDropUp();
-  };
-
-  const dropDownAnim = useRef(new Animated.Value(0)).current;
-
-  const menuDropDown = () => {
-    Animated.timing(dropDownAnim, {
-      toValue: 10,
-      duration: 200,
-      useNativeDriver: true
-    }).start();
-  }
-  const menuDropUp = () => {
-    Animated.timing(dropDownAnim, {
-      toValue: 0,
-      duration: 200,
-      useNativeDriver: true
-    }).start();
-  }
   
   return (
     <View style={styles.todoFolderContainer}>
@@ -49,16 +30,7 @@ export const TodoFolder: FC<TodoFolderProps> = ({ title, todosCount }) => {
         <Animated.View
           style={[
             styles.headerDropdownContainer,
-            {
-              transform: [
-                {
-                  translateY: dropDownAnim.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [0, 7]
-                  })
-                }
-              ]
-            }
+            {transform: [{translateY: transitionY}]}
           ]}
         >
           <Text>Rename folder</Text>
@@ -79,7 +51,7 @@ export const TodoFolder: FC<TodoFolderProps> = ({ title, todosCount }) => {
             name="dots-vertical"
             size={24}
             color="grey"
-            onPress={handleDropDown}
+            onPress={onPressAnimate}
           />
         </View>
       </View>
