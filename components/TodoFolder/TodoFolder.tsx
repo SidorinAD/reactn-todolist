@@ -93,11 +93,15 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     zIndex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'white'
   },
   headerDropdownContainer: {
     position: 'relative',
     zIndex: -1,
-    backgroundColor: 'red',
+    backgroundColor: '#f5f3f0',
+    borderWidth: 1,
+    height: 110,
+    fontSize: 15,
+    justifyContent: 'space-evenly'
   }
 });
