@@ -19,7 +19,7 @@ export const useAnimatedStyle = () => {
 
   const inputRange = Object.values(animateState);
 
-  const transitionY = value.interpolate({inputRange, outputRange: [-100,82]})
+  const transitionY = value.interpolate({inputRange, outputRange: [-500,82]})
 
   return { transitionY, onPressAnimate };
 }
