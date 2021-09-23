@@ -15,7 +15,7 @@ import { StatusBar } from 'expo-status-bar';
 import { TodoStore } from './store';
 import { TodoList } from './components/TodoList';
 import { HeaderComponent } from './components/Header'
-import { TodoFolder } from 'components/TodoFolder';
+import { TodoCategory } from 'components/TodoFolder';
 
 let defaultTodo = new TodoStore();
 
@@ -28,7 +28,7 @@ export default function App() {
         <View style={styles.container}>
           <HeaderComponent title={'Todo List'} />
           <StatusBar style="auto" />
-          <TodoFolder title='Copy' id={1}></TodoFolder>
+          <TodoCategory title='Copy' id={1}></TodoCategory>
 
           <SafeAreaView>
             <TodoList />

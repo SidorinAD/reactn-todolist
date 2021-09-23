@@ -23,7 +23,7 @@ import {
 import { Category } from 'types/types';
 
 
-export const TodoFolder: FC<Category> = observer(({ id: categoryId, title }) => {
+export const TodoCategory: FC<Category> = observer(({ id: categoryId, title }) => {
   const [expand, setExpand] = useState(true);
   const [isModalVisible, setModalVisible] = useState(false);
   const [todoText, setTodoText] = useState('');
@@ -43,12 +43,12 @@ export const TodoFolder: FC<Category> = observer(({ id: categoryId, title }) => 
   const handleExpand = () => setExpand((prevExpand) => !prevExpand);
 
   return (
-    <View style={styles.todoFolderContainer}>
-      <View style={styles.todoFolderHeaderContainer}>
-        <View style={styles.todoFolderHeaderTextContainer}>
-          <Text style={styles.todoFolderHeaderText}>{title}</Text>
+    <View style={styles.todoCategoryContainer}>
+      <View style={styles.todoCategoryHeaderContainer}>
+        <View style={styles.todoCategoryHeaderTextContainer}>
+          <Text style={styles.todoCategoryHeaderText}>{title}</Text>
 
-          <Text style={styles.todoFolderHeaderNumber}>{todosCount}</Text>
+          <Text style={styles.todoCategoryHeaderNumber}>{todosCount}</Text>
         </View>
         {/**
          * убрать в отдельный компонент
@@ -59,8 +59,8 @@ export const TodoFolder: FC<Category> = observer(({ id: categoryId, title }) => 
             { transform: [{ translateY: transitionY }] }
           ]}
         >
-          <Text>Rename folder</Text>
-          <Text>Delete folder</Text>
+          <Text>Rename Category</Text>
+          <Text>Delete Category</Text>
           <Text onPress={() => setModalVisible(true)}>Add Todo</Text>
 
           <Modal
@@ -78,10 +78,10 @@ export const TodoFolder: FC<Category> = observer(({ id: categoryId, title }) => 
             </Card>
           </Modal>
 
-          <Text>Delete folder</Text>
-          <Text>Delete folder</Text>
+          <Text>Delete Category</Text>
+          <Text>Delete Category</Text>
         </Animated.View>
-        <View style={styles.todoFolderHeaderIconsContainer}>
+        <View style={styles.todoCategoryHeaderIconsContainer}>
           <MaterialIcons
             name={expand ? 'keyboard-arrow-down' : 'keyboard-arrow-up'}
             size={24}
@@ -103,29 +103,29 @@ export const TodoFolder: FC<Category> = observer(({ id: categoryId, title }) => 
 });
 
 const styles = StyleSheet.create({
-  todoFolderContainer: {
+  todoCategoryContainer: {
     width: '100%',
   },
-  todoFolderHeaderContainer: {
+  todoCategoryHeaderContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     height: 50,
   },
-  todoFolderHeaderNumber: {
+  todoCategoryHeaderNumber: {
     color: 'grey',
   },
-  todoFolderHeaderTextContainer: {
+  todoCategoryHeaderTextContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     width: '20%',
     justifyContent: 'space-evenly',
   },
-  todoFolderHeaderText: {
+  todoCategoryHeaderText: {
     fontSize: 18,
     fontWeight: '900',
   },
-  todoFolderHeaderIconsContainer: {
+  todoCategoryHeaderIconsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     width: '23%',
