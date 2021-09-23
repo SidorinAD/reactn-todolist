@@ -3,8 +3,7 @@ import { TodoStore } from './todo-store';
 
 export const todosForCategorySelector =
   (categoryId: number) => (store: TodoStore) => {
-    const todosForCategory = store.todos
-      .filter((todo) => todo.categoryId === categoryId);
-
+    const todosForCategory = useMemo(() => store.todos
+      .filter((todo) => todo.categoryId === categoryId), [categoryId]);
     return todosForCategory;
   };
