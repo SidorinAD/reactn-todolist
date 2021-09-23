@@ -14,8 +14,8 @@ import { ApplicationProvider } from '@ui-kitten/components';
 import { StatusBar } from 'expo-status-bar';
 import { TodoStore } from './store';
 import { TodoList } from './components/TodoList';
-import { HeaderComponent } from './components/Header'
-import { TodoCategory } from 'components/TodoFolder';
+import { HeaderComponent } from './components/Header';
+import { TodoCategoryList } from './components/TodoCategoryList';
 
 let defaultTodo = new TodoStore();
 
@@ -28,7 +28,7 @@ export default function App() {
         <View style={styles.container}>
           <HeaderComponent title={'Todo List'} />
           <StatusBar style="auto" />
-          <TodoCategory title='Copy' id={1}></TodoCategory>
+          <TodoCategoryList/>
 
           <SafeAreaView>
             <TodoList />
@@ -43,5 +43,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     alignItems: 'center',
-  },
+    overflow: 'visible'
+  }
 });
