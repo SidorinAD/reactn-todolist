@@ -14,29 +14,33 @@ import {
 } from '@ui-kitten/components';
 import { observer } from 'mobx-react-lite';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
-import { useAnimatedStyle, useTodoStore } from 'utils/hooks';
+import { todosForCategorySelector } from '../../store/selectors';
+import {
+  useAnimatedStyle,
+  useTodoStore,
+  useSelector,
+} from 'utils/hooks';
+import { Category } from 'types/types';
 
-type TodoFolderProps = {
-  title: string,
-}
 
-export const TodoFolder: FC<TodoFolderProps> = observer(({ title }) => {
+export const TodoFolder: FC<Category> = observer(({ id: categoryId, title }) => {
   const [expand, setExpand] = useState(true);
   const [isModalVisible, setModalVisible] = useState(false);
-  const [todoText, setTodoText] = useState('')
+  const [todoText, setTodoText] = useState('');
 
   const { TodoStore } = useTodoStore();
 
   const todosCount = TodoStore.todos.length;
 
-  const addTodo = (text: string) => {
-    TodoStore.addTodo(text), 
-    setTodoText('');
-  }
+  const todos = useSelector(todosForCategorySelector(categoryId));
+
+  const addTodo = (todoText: string) => {
+    TodoStore.addTodo(todoText, categoryId), setTodoText('');
+  };
 
   const { onPressAnimate, transitionY } = useAnimatedStyle();
 
-  const handleExpand = () => (setExpand((prevExpand) => !prevExpand));
+  const handleExpand = () => setExpand((prevExpand) => !prevExpand);
 
   return (
     <View style={styles.todoFolderContainer}>
@@ -46,6 +50,9 @@ export const TodoFolder: FC<TodoFolderProps> = observer(({ title }) => {
 
           <Text style={styles.todoFolderHeaderNumber}>{todosCount}</Text>
         </View>
+        {/**
+         * убрать в отдельный компонент
+         */}
         <Animated.View
           style={[
             styles.headerDropdownContainer,
@@ -65,7 +72,7 @@ export const TodoFolder: FC<TodoFolderProps> = observer(({ title }) => {
               <TextInput
                 value={todoText}
                 onChangeText={setTodoText}
-                placeholder='Enter todo text'
+                placeholder="Enter todo text"
               />
               <Button onPress={() => addTodo(todoText)}>Create todo</Button>
             </Card>

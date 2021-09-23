@@ -14,8 +14,7 @@ import { ApplicationProvider } from '@ui-kitten/components';
 import { StatusBar } from 'expo-status-bar';
 import { TodoStore } from './store';
 import { TodoList } from './components/TodoList';
-import { AddTodo } from './components/AddTodoForm';
-import { Header } from './components/Header'
+import { HeaderComponent } from './components/Header'
 import { TodoFolder } from 'components/TodoFolder';
 
 let defaultTodo = new TodoStore();
@@ -27,9 +26,10 @@ export default function App() {
     <ApplicationProvider {...eva} theme={eva.light}>
       <TodoContext.Provider value={new TodoStore()}>
         <View style={styles.container}>
-          <Header title={'Todo List'}/>
+          <HeaderComponent title={'Todo List'} />
           <StatusBar style="auto" />
-          <TodoFolder title={'Copy'} ></TodoFolder>
+          <TodoFolder title='Copy' id={1}></TodoFolder>
+
           <SafeAreaView>
             <TodoList />
           </SafeAreaView>
