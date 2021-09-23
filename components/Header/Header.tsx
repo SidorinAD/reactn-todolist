@@ -1,12 +1,12 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import { HeaderType } from 'types/types';
+import { Header } from 'types/types';
 
 import { StyleSheet, Text, View, Animated, TextInput } from 'react-native';
 
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 
-export const Header: FC<HeaderType> = ({ title }) => {
+export const HeaderComponent: FC<Header> = ({ title }) => {
 
   const [menuDrop, setMenuDrop] = useState(true);
   const [searchInputVisible, setSearchInputVisible] = useState(true);
