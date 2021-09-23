@@ -1,1 +1,1 @@
-export { TodoType, HeaderType } from './types';
+export { Todo, Header, Category } from './types';

@@ -1,10 +1,18 @@
-export type TodoType = {
+export type Todo = {
   id: number;
   text: string;
   completed: boolean;
   date: string;
+  categoryId: Category['id'];
 }
 
-export type HeaderType = {
+export type Category = {
+  id: number;
   title: string;
 }
+
+export type Header = {
+  title: string;
+}
+
+//убрать Type
