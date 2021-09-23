@@ -4,7 +4,10 @@ import { Todo, Category } from "../types";
 export class TodoStore {
   todos: Todo[] = [];
 
-  categories: Category[] = [];
+  categories: Category[] = [{
+    title: 'Copy',
+    id: 1,
+  }];
 
   constructor() {
     makeAutoObservable(this);
