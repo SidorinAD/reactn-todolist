@@ -14,5 +14,3 @@ export type Category = {
 export type Header = {
   title: string;
 }
-
-//убрать Type
