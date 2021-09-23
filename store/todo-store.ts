@@ -4,10 +4,18 @@ import { Todo, Category } from "../types";
 export class TodoStore {
   todos: Todo[] = [];
 
-  categories: Category[] = []
+  categories: Category[] = [];
 
   constructor() {
     makeAutoObservable(this);
+  }
+
+  addCategory(newCategoryTitle: string) {
+    const newCategory = {
+      id: this.categories.length + 1,
+      title: newCategoryTitle,
+    };
+    this.categories.push(newCategory);
   }
 
   addTodo(newTodoText: string, categoryId: number) {
