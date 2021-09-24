@@ -129,7 +129,8 @@ export const HeaderComponent: FC<Header> = ({ title }) => {
 const styles = StyleSheet.create({
   header: {
     width: '100%',
-    height: 90,
+    flex: 1,
+    maxHeight: 90,
     flexDirection: 'row',
     justifyContent: 'center',
     paddingVertical: 29,

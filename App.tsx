@@ -29,10 +29,6 @@ export default function App() {
           <HeaderComponent title={'Todo List'} />
           <StatusBar style="auto" />
           <TodoCategoryList/>
-
-          <SafeAreaView>
-            <TodoList />
-          </SafeAreaView>
         </View>
       </TodoContext.Provider>
     </ApplicationProvider>
@@ -41,8 +37,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
     alignItems: 'center',
-    overflow: 'visible'
-  }
+    flex: 1,
+    flexDirection: 'column',
+  },
+ 
 });

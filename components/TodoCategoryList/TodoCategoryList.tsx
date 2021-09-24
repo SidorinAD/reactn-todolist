@@ -25,15 +25,13 @@ export const TodoCategoryList = observer(() => {
 
 const styles = StyleSheet.create({
   categoryListContainer: {
-    width: '100%',
+    width: 430,
+    flex: 3,
     overflow: 'visible',
-    height: 250,
-    paddingTop: 20,
-    paddingLeft: 20,
-    paddingBottom: 20,
-    paddingRight: 20
+    maxHeight: '50%',
+    backgroundColor: 'red',
   },
   categoryFlatList: {
-    overflow: 'visible'
+    marginHorizontal: 5,
   }
 });

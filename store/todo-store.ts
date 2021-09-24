@@ -2,12 +2,13 @@ import { makeAutoObservable } from "mobx";
 import { Todo, Category } from "../types";
 
 export class TodoStore {
-  todos: Todo[] = [];
+  todos: Todo[] = [
+    
+  ];
 
-  categories: Category[] = [{
-    title: 'Copy',
-    id: 1,
-  }];
+  categories: Category[] = [
+    
+  ];
 
   constructor() {
     makeAutoObservable(this);
@@ -16,7 +17,7 @@ export class TodoStore {
   addCategory(newCategoryTitle: string) {
     const newCategory = {
       id: this.categories.length + 1,
-      title: newCategoryTitle,
+      title: newCategoryTitle
     };
     this.categories.push(newCategory);
   }
@@ -27,15 +28,14 @@ export class TodoStore {
       text: newTodoText,
       completed: false,
       date: new Date().toLocaleString(),
-      categoryId,
+      categoryId
     };
 
     this.todos.push(newTodo);
   }
 
   addCashedTodos(jsonValue: any) {
-    console.log(jsonValue);
-    this.todos = [ ...this.todos, ...jsonValue];
+    this.todos = [...this.todos, ...jsonValue];
   }
 
   completeTodo(id: number) {

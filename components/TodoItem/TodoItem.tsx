@@ -60,7 +60,7 @@ export const TodoItem = observer(({ todoData } : any) => {
 
 const styles = StyleSheet.create({
   todoContainer: {
-    width: '100%',
+    //width: '100%',
     height: 100,
     flexDirection: 'row',
     marginVertical: 15,

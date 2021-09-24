@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC } from 'react';
 
 import {
+  View,
   StyleSheet,
   FlatList,
   ScrollView
@@ -10,16 +11,19 @@ import { observer } from 'mobx-react-lite';
 import { cashTodos, getCashedTodos } from 'services/todoStorage';
 import { useTodoStore, useAsyncEffect } from 'utils/hooks';
 import { TodoItem } from '../TodoItem';
+import {Todo} from 'types/types';
 
-export const TodoList = observer(() => {
+  
+
+export const TodoList:FC<Todo[]> = observer((todos) => {
   const { TodoStore } = useTodoStore();
-  let todos = TodoStore.todos;
- 
   // useEffect
   //getTodos/storeTodos = services
   // кастомный хук useAsyncEffect для работы с асинхронными функциями
   // safeArea и стили
   // настройка alias для папок, module resolver
+
+  
 
   cashTodos(todos)
 
@@ -28,21 +32,23 @@ export const TodoList = observer(() => {
     await TodoStore.addCashedTodos(jsonValue);
   }, []);
 
+  console.log(todos)
+
   return (
-    <ScrollView>
+    <View>
       <FlatList
         showsVerticalScrollIndicator={true}
         data={todos}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <TodoItem todoData={item} />}
       />
-    </ScrollView>
+    </View>
   );
 });
 
 const styles = StyleSheet.create({
   todolistcontainer: {
     alignItems: 'center',
-    width: '100%',
+    //width: '100%',
   },
 });

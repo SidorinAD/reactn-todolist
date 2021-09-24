@@ -21,6 +21,7 @@ import {
   useSelector,
 } from 'utils/hooks';
 import { Category } from 'types/types';
+import { TodoList } from 'components/TodoList';
 
 
 export const TodoCategory: FC<Category> = observer(({ id: categoryId, title }) => {
@@ -33,6 +34,7 @@ export const TodoCategory: FC<Category> = observer(({ id: categoryId, title }) =
   const todosCount = TodoStore.todos.length;
 
   const todos = useSelector(todosForCategorySelector(categoryId));
+  console.log(todos)
 
   const addTodo = (todoText: string) => {
     TodoStore.addTodo(todoText, categoryId), setTodoText('');
@@ -98,14 +100,19 @@ export const TodoCategory: FC<Category> = observer(({ id: categoryId, title }) =
         </View>
       </View>
       <Divider />
+
+      <TodoList {...todos}/>
+
     </View>
   );
 });
 
 const styles = StyleSheet.create({
   todoCategoryContainer: {
-    width: '100%',
-    overflow: 'visible'
+    width: 420,
+    backgroundColor: 'blue',
+    height: 150,
+    
   },
   todoCategoryHeaderContainer: {
     flexDirection: 'row',
@@ -130,10 +137,10 @@ const styles = StyleSheet.create({
   todoCategoryHeaderIconsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: '23%',
+    width: '30%',
     height: 50,
     justifyContent: 'space-evenly',
-    //position: 'absolute',
+    position: 'absolute',
     right: 0,
     //zIndex: 1,
     backgroundColor: 'white'
